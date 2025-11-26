@@ -46,7 +46,7 @@ HTML_HOME = """
 <div class="card">
     <h1>API Flask - Quishpe</h1>
     <p>Versión <strong>1.0.5</strong></p>
-    <p>Bienvenido a la API desplegada en CI/CD 🚀</p>
+    <p>HOLA ECUADOR 🚀</p>
 
     <button onclick="window.location.href='/predict?text=hola'">
         Ir a /predict
