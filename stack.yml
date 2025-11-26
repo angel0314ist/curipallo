@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   curipallo:
-    image: ghcr.io/angel0314ist/practica:1.0.5
+    image: ghcr.io/angel0314ist/curipallo:1.0.5
     deploy:
       replicas: 1
       labels:

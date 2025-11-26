@@ -44,10 +44,10 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/angel0314ist/practica:1.0.5
+            ghcr.io/angel0314ist/curipallo:1.0.5
 
       - name: ✅ Verify image build
-        run: docker images ghcr.io/angel0314ist/practica:1.0.5
+        run: docker images ghcr.io/angel0314ist/curipallo:1.0.5
 
       - name: 🧾 Mostrar variables básicas (solo locales, no secretos)
         run: |
@@ -91,7 +91,7 @@ jobs:
             echo "✅ Desplegando servicios"
             echo "==> descargando la imagen del GHCR"
             echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u angel0314ist --password-stdin
-            docker pull ghcr.io/angel0314ist/practica:1.0.5
+            docker pull ghcr.io/angel0314ist/curipallo:1.0.5
             docker stack rm curipallo || true
             sleep 30
             echo "==> Desplegando stack..."
