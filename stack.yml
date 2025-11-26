@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  curipallo:
+    image: ghcr.io/angel0314ist/practica:1.0.5
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.curipallo.entrypoints=http"
+        - "traefik.http.routers.curipallo.rule=Host(`curipallo.byronrm.com`)"
+        - "traefik.http.middlewares.curipallo-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.curipallo.middlewares=curipallo-https-redirect"
+        - "traefik.http.routers.curipallo-secure.entrypoints=https"
+        - "traefik.http.routers.curipallo-secure.rule=Host(`curipallo.byronrm.com`)"
+        - "traefik.http.routers.curipallo-secure.tls=true"
+        - "traefik.http.routers.curipallo-secure.tls.certresolver=http"
+        - "traefik.http.routers.curipallo-secure.service=curipallo"
+        - "traefik.http.services.curipallo.loadbalancer.server.port=5000"
+        - "traefik.docker.network=traefik-public"
+    networks:
+      - traefik-public
+
+networks:
+  traefik-public:
+    external: true
